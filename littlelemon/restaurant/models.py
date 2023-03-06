@@ -6,21 +6,24 @@ validators = [
 ]
 # Create your models here.
 class MenuItem(models.Model):
-    Id = models.IntegerField(primary_key=True, validators = [
+    id = models.IntegerField(primary_key=True, validators = [
                                                     MaxValueValidator(5)
                                                 ])
-    Title = models.CharField(max_length=255)
-    Price = models.DecimalField(decimal_places=2, max_digits=10)
-    Inventory = models.IntegerField(validators = [
+    title = models.CharField(max_length=255)
+    price = models.DecimalField(decimal_places=2, max_digits=10)
+    inventory = models.IntegerField(validators = [
                                                     MaxValueValidator(5)
                                                 ])
+    
+    def __str__(self):
+        return f'{self.Title} : {str(self.Price)}'
 
 class Booking(models.Model):
-    Id = models.IntegerField(primary_key=True, validators = [
+    id = models.IntegerField(primary_key=True, validators = [
                                                     MaxValueValidator(11)
                                                 ])
-    Name = models.CharField(max_length=255)
-    No_of_guest = models.IntegerField(validators = [
+    name = models.CharField(max_length=255)
+    no_of_guest = models.IntegerField(validators = [
                                                     MaxValueValidator(6)
                                                 ])
-    BookingDate = models.DateTimeField()
+    bookingDate = models.DateTimeField()
